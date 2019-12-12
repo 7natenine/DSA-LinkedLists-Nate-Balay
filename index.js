@@ -313,12 +313,12 @@ function main() {
   // // size(LL);
   // // findPrevious(LL,'Husker');
   // // findLast(LL);
-  let MM = new LinkedList();
-  MM.insertFirst('hello');
-  MM.insertLast('world');
-  MM.insertLast('how');
-  MM.insertLast('are');
-  MM.insertLast('you');
+//   let MM = new LinkedList();
+//   MM.insertFirst('hello');
+//   MM.insertLast('world');
+//   MM.insertLast('how');
+//   MM.insertLast('are');
+//   MM.insertLast('you');
   // display(MM);
   // MM.reverseList();
   //console.log(reverseList(MM));
@@ -327,21 +327,21 @@ function main() {
   // middleOfList(MM);
 
 
-  let NN = new LinkedList();
-  NN.insertFirst('a');
-  NN.insertLast('b');
-  NN.insertLast('c');
-  NN.insertLast('a');
-  NN.insertLast('b');
-  NN.insertLast('c');
-  cycleList(NN);
-  cycleList(MM);
+//   let NN = new LinkedList();
+//   NN.insertFirst('a');
+//   NN.insertLast('b');
+//   NN.insertLast('c');
+//   NN.insertLast('a');
+//   NN.insertLast('b');
+//   NN.insertLast('c');
+//   cycleList(NN);
+//   cycleList(MM);
   // display(MM);
   // WhatDoesThisProgramDo(MM)
   // display(MM);
 }
 
-console.log(main());
+//console.log(main());
 
 
 //doubly linked lists
