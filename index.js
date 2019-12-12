@@ -100,7 +100,7 @@ class LinkedList {
 
     let temp = currNode;
     prevNode.next = new _Node(item, temp);
-    console.log('insertBefore success!', prevNode.value, prevNode.next, prevNode.next.next.next);
+    console.log('insertBefore success!', prevNode.value, prevNode.next);
 
   }
 
@@ -121,14 +121,14 @@ class LinkedList {
       return; 
     }
 
-    if (currNode.next === null){
+    if (currNode.next === null) {
       this.insertLast(item);
       console.log('Item inserted at the end', currNode.next);
       return;
     }
 
     let temp = currNode.next;
-    currNode.next = new _Node(item,temp);
+    currNode.next = new _Node(item, temp);
     console.log('insertAfter success!', prevNode.value, currNode.value, currNode.next);
   }
 
@@ -147,13 +147,10 @@ class LinkedList {
       indexAt++;
     }
     
-    prevNode.next = new _Node(item, currNode.value);
+    prevNode.next = new _Node(item, currNode);
     
     console.log('insertAt success!', prevNode.value, prevNode.next);
   }
-
-
-
 
 }
 
