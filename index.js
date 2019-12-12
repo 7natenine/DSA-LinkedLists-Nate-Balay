@@ -183,6 +183,49 @@ function size(list) {
   return console.log(count);
 }
 
+function isEmpty(list) {
+  let currNode = list.head;
+
+  if(!currNode){
+    return true;
+  }
+  else 
+    return false;
+}
+
+function findPrevious(list, item) {
+  let currNode = list.head
+  let prevNode = list.head
+  
+  if (!currNode) {
+    return null;
+  }
+
+  while ((currNode.next !== null) && (currNode.value !==item)) {
+    prevNode = currNode; 
+    currNode = currNode.next;
+  }
+
+  if(currNode.value === item){
+    return console.log(prevNode.value)
+  }
+}
+
+function findLast(list) {
+  let currNode = list.head
+
+  if (!currNode) {
+    return null; 
+  }
+
+  while (currNode.next !== null) {
+    currNode = currNode.next;
+  }
+
+  if(currNode.next === null){
+    return console.log(currNode.value)
+  }
+}
 
 function main() {
   let LL = new LinkedList();
@@ -199,9 +242,12 @@ function main() {
   LL.remove('Tauhida');
   display(LL);
   size(LL);
+  findPrevious(LL,'Husker');
+  findLast(LL);
 }
 
 console.log(main());
+
 
 //doubly linked lists
 
@@ -212,3 +258,22 @@ console.log(main());
  * the previous of next value
  */
 
+function WhatDoesThisProgramDo(lst) {
+  let current = lst.head;
+  while (current !== null) {
+      let newNode = current;
+      while (newNode.next !== null) {
+          if (newNode.next.value === current.value) {
+              newNode.next = newNode.next.next;
+          }
+          else {
+              newNode = newNode.next;
+          }
+      }
+      current = current.next;
+  }
+}
+
+/**
+ * 
+ */
