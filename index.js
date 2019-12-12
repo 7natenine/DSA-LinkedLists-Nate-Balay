@@ -33,12 +33,60 @@ class LinkedList {
 
   }
 
+  find(item) {
+    
+    let currNode = this.head;
+    if (!this.head) {
+      return null;
+    }
 
+    while (currNode.value !== item) {
+      if (currNode.next === null) {
+        return null;
+      } else {
+        currNode = currNode.next;
+      }
+    }
+    return currNode;
+  }
+
+  remove(item) {
+
+    if (!this.head) {
+      return null;
+    }
+    if (this.head.value === item) {
+      this.head = this.head.next;
+      return;
+    }
+
+    let currNode = this.head;
+    let prevNode = this.head;
+
+    while ((currNode !== null) && (currNode.value !== item)) {
+      prevNode = currNode;
+      currNode = currNode.next;
+    }
+    if (currNode === null) {
+      console.log('Not found!');
+      return;
+    }
+    prevNode.next = currNode.next;
+  }
 
 
 }
 
-let list = new LinkedList();
+
+function main() {
+  let LL = new LinkedList();
+  LL.insertFirst('Apollo');
+  LL.insertLast('Boomer');
+  LL.insertLast('Helo');
+  LL.insertLast('Husker');
+  LL.insertLast('Starbuck');
+  
+}
 
 //doubly linked lists
 
