@@ -163,7 +163,8 @@ class LinkedList {
       prevNode = currNode;
       currNode = tmp;
     }
-  
+    
+    this.head = prevNode;
     return prevNode;
     
   }
