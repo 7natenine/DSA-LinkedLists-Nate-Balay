@@ -81,10 +81,10 @@ class LinkedList {
     if (!this.head) {
       return null;
     }
-    // if (this.head.value === key) {
-    //   this.insertFirst(item);
-    //   return;
-    // }
+    if (this.head.value === key) {
+      this.insertFirst(item);
+      return;
+    }
 
     let currNode = this.head;
     let prevNode = this.head;
@@ -123,7 +123,7 @@ class LinkedList {
 
     if (currNode.next === null){
       this.insertLast(item);
-      console.log('Item inserted at the end', currNode.next)
+      console.log('Item inserted at the end', currNode.next);
       return;
     }
 
