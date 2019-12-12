@@ -98,8 +98,9 @@ class LinkedList {
       return;
     }
 
-    prevNode.next = new _Node(item, currNode.value);
-    console.log('insertBefore success!', prevNode.value ,prevNode.next);
+    let temp = currNode;
+    prevNode.next = new _Node(item, temp);
+    console.log('insertBefore success!', prevNode.value, prevNode.next, prevNode.next.next.next);
 
   }
 
@@ -110,7 +111,7 @@ class LinkedList {
 
     let currNode = this.head;
     let prevNode = this.head; 
-
+    
     while ((currNode !== null) && (currNode.value !== key)) {
       prevNode = currNode; 
       currNode = currNode.next;
@@ -145,8 +146,9 @@ class LinkedList {
       currNode = currNode.next;
       indexAt++;
     }
-
+    
     prevNode.next = new _Node(item, currNode.value);
+    
     console.log('insertAt success!', prevNode.value, prevNode.next);
   }
 
