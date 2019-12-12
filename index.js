@@ -152,6 +152,22 @@ class LinkedList {
     console.log('insertAt success!', prevNode.value, prevNode.next);
   }
 
+  reverseList() {
+    let currNode = this.head;
+    let prevNode = null;
+    let tmp = null;
+
+    while (currNode) {
+      tmp = currNode.next;
+      currNode.next = prevNode;
+      prevNode = currNode;
+      currNode = tmp;
+    }
+  
+    return prevNode;
+    
+  }
+
 }
 
 function display(list) {
@@ -180,7 +196,7 @@ function size(list) {
     currNode = currNode.next;
     count++;
   }
-  return console.log(count);
+  return count;
 }
 
 function isEmpty(list) {
@@ -194,8 +210,8 @@ function isEmpty(list) {
 }
 
 function findPrevious(list, item) {
-  let currNode = list.head
-  let prevNode = list.head
+  let currNode = list.head;
+  let prevNode = list.head;
   
   if (!currNode) {
     return null;
@@ -207,12 +223,12 @@ function findPrevious(list, item) {
   }
 
   if(currNode.value === item){
-    return console.log(prevNode.value)
+    return console.log(prevNode.value);
   }
 }
 
 function findLast(list) {
-  let currNode = list.head
+  let currNode = list.head;
 
   if (!currNode) {
     return null; 
@@ -223,9 +239,10 @@ function findLast(list) {
   }
 
   if(currNode.next === null){
-    return console.log(currNode.value)
+    return console.log(currNode.value);
   }
 }
+
 
 function main() {
   // let LL = new LinkedList();
@@ -247,14 +264,13 @@ function main() {
   let MM = new LinkedList();
   MM.insertFirst('hello');
   MM.insertLast('world');
-  MM.insertLast('world');
   MM.insertLast('how');
   MM.insertLast('are');
-  MM.insertLast('are');
   MM.insertLast('you');
-  display(MM)
-  WhatDoesThisProgramDo(MM);
-  display(MM)
+  display(MM);
+  MM.reverseList();
+  //console.log(reverseList(MM));
+  display(MM);
 }
 
 console.log(main());
@@ -272,16 +288,16 @@ console.log(main());
 function WhatDoesThisProgramDo(lst) {
   let current = lst.head;
   while (current !== null) {
-      let newNode = current;
-      while (newNode.next !== null) {
-          if (newNode.next.value === current.value) {
-              newNode.next = newNode.next.next;
-          }
-          else {
-              newNode = newNode.next;
-          }
+    let newNode = current;
+    while (newNode.next !== null) {
+      if (newNode.next.value === current.value) {
+        newNode.next = newNode.next.next;
       }
-      current = current.next;
+      else {
+        newNode = newNode.next;
+      }
+    }
+    current = current.next;
   }
 }
 
