@@ -228,22 +228,33 @@ function findLast(list) {
 }
 
 function main() {
-  let LL = new LinkedList();
-  LL.insertFirst('Apollo');
-  LL.insertLast('Boomer');
-  LL.insertLast('Helo');
-  LL.insertLast('Husker');
-  LL.insertLast('Starbuck');
-  LL.insertLast('Tauhida');
-  LL.remove('squirrel');
-  LL.insertBefore('Athena', 'Boomer');
-  LL.insertAfter('Hotdog','Helo');
-  LL.insertAt('Kat', 3);
-  LL.remove('Tauhida');
-  display(LL);
-  size(LL);
-  findPrevious(LL,'Husker');
-  findLast(LL);
+  // let LL = new LinkedList();
+  // LL.insertFirst('Apollo');
+  // LL.insertLast('Boomer');
+  // LL.insertLast('Helo');
+  // LL.insertLast('Husker');
+  // LL.insertLast('Starbuck');
+  // LL.insertLast('Tauhida');
+  // LL.remove('squirrel');
+  // LL.insertBefore('Athena', 'Boomer');
+  // LL.insertAfter('Hotdog','Helo');
+  // LL.insertAt('Kat', 3);
+  // LL.remove('Tauhida');
+  // // display(LL);
+  // // size(LL);
+  // // findPrevious(LL,'Husker');
+  // // findLast(LL);
+  let MM = new LinkedList();
+  MM.insertFirst('hello');
+  MM.insertLast('world');
+  MM.insertLast('world');
+  MM.insertLast('how');
+  MM.insertLast('are');
+  MM.insertLast('are');
+  MM.insertLast('you');
+  display(MM)
+  WhatDoesThisProgramDo(MM);
+  display(MM)
 }
 
 console.log(main());
@@ -275,5 +286,5 @@ function WhatDoesThisProgramDo(lst) {
 }
 
 /**
- * 
+ * This function removes repeated duplicates.
  */
