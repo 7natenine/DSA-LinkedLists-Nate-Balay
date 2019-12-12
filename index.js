@@ -244,6 +244,57 @@ function findLast(list) {
   }
 }
 
+function thirdFromEnd(list) {
+  let currNode = list.head;
+
+  if(!currNode) {
+    return null;
+  }
+
+  while (currNode.next.next.next !== null) {
+    currNode = currNode.next;
+  }
+
+  if(currNode.next.next.next === null){
+    return console.log(currNode.value);
+  }
+}
+
+function middleOfList(list) {
+  let fastNode = list.head; 
+  let slowNode = list.head;
+
+  if(!fastNode) {
+    return null;
+  }
+
+  while (fastNode.next!== null){
+    fastNode = fastNode.next.next
+    slowNode = slowNode.next
+  }
+
+  if(fastNode.next === null){
+    return console.log(slowNode.value)
+  }
+}
+
+function cycleList(list) {
+  let current = list.head;
+  while (current !== null) {
+    let newNode = current;
+    while (newNode.next !== null) {
+      if (newNode.next.value === current.value) {
+
+        return console.log('cycleLing')
+      }
+      else {
+        newNode = newNode.next;
+      }
+    }
+    current = current.next;
+  }
+  return console.log('not cycleling')
+}
 
 function main() {
   // let LL = new LinkedList();
@@ -268,10 +319,26 @@ function main() {
   MM.insertLast('how');
   MM.insertLast('are');
   MM.insertLast('you');
-  display(MM);
-  MM.reverseList();
+  // display(MM);
+  // MM.reverseList();
   //console.log(reverseList(MM));
-  display(MM);
+  // display(MM);
+  // thirdFromEnd(MM);
+  // middleOfList(MM);
+
+
+  let NN = new LinkedList();
+  NN.insertFirst('a');
+  NN.insertLast('b');
+  NN.insertLast('c');
+  NN.insertLast('a');
+  NN.insertLast('b');
+  NN.insertLast('c');
+  cycleList(NN);
+  cycleList(MM);
+  // display(MM);
+  // WhatDoesThisProgramDo(MM)
+  // display(MM);
 }
 
 console.log(main());
