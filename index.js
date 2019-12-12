@@ -154,6 +154,35 @@ class LinkedList {
 
 }
 
+function display(list) {
+  let currNode = list.head;
+
+  if (!currNode) {
+    return null;
+  }
+
+  while (currNode.next !== null) {
+    console.log(currNode.value);
+    currNode = currNode.next;
+  }
+  return console.log(currNode.value);
+}
+
+function size(list) {
+  let currNode = list.head;
+  let count = 0;
+
+  if (!currNode) {
+    return null;
+  }
+
+  while (currNode.next !== null) {
+    currNode = currNode.next;
+    count++;
+  }
+  return console.log(count);
+}
+
 
 function main() {
   let LL = new LinkedList();
@@ -168,6 +197,8 @@ function main() {
   LL.insertAfter('Hotdog','Helo');
   LL.insertAt('Kat', 3);
   LL.remove('Tauhida');
+  display(LL);
+  size(LL);
 }
 
 console.log(main());
