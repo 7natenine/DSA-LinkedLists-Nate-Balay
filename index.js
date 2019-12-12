@@ -81,10 +81,10 @@ class LinkedList {
     if (!this.head) {
       return null;
     }
-    if (this.head.value === key) {
-      this.insertFirst(item);
-      return;
-    }
+    // if (this.head.value === key) {
+    //   this.insertFirst(item);
+    //   return;
+    // }
 
     let currNode = this.head;
     let prevNode = this.head;
@@ -99,9 +99,58 @@ class LinkedList {
     }
 
     prevNode.next = new _Node(item, currNode.value);
-    console.log('insertBefore success!', prevNode.next, currNode.value);
+    console.log('insertBefore success!', prevNode.value ,prevNode.next);
 
   }
+
+  insertAfter(item, key) {
+    if (!this.head){
+      return null;
+    }
+
+    let currNode = this.head;
+    let prevNode = this.head; 
+
+    while ((currNode !== null) && (currNode.value !== key)) {
+      prevNode = currNode; 
+      currNode = currNode.next;
+    }
+    if (currNode === null) {
+      console.log ('key not found!', key); 
+      return; 
+    }
+
+    if (currNode.next === null){
+      this.insertLast(item);
+      console.log('Item inserted at the end', currNode.next)
+      return;
+    }
+
+    let temp = currNode.next;
+    currNode.next = new _Node(item,temp);
+    console.log('insertAfter success!', prevNode.value, currNode.value, currNode.next);
+  }
+
+  insertAt(item, pos) {
+    if (!this.head){
+      return null;
+    }
+
+    let currNode = this.head;
+    let prevNode = this.head;
+    let indexAt = 1;
+
+    while ((currNode !== null) && (indexAt !== pos)) {
+      prevNode = currNode; 
+      currNode = currNode.next;
+      indexAt++;
+    }
+
+    prevNode.next = new _Node(item, currNode.value);
+    console.log('insertAt success!', prevNode.value, prevNode.next);
+  }
+
+
 
 
 }
@@ -116,7 +165,10 @@ function main() {
   LL.insertLast('Starbuck');
   LL.insertLast('Tauhida');
   LL.remove('squirrel');
-  LL.insertBefore('Balay', 'Starbuck');
+  LL.insertBefore('Athena', 'Boomer');
+  LL.insertAfter('Hotdog','Helo');
+  LL.insertAt('Kat', 3);
+  LL.remove('Tauhida');
 }
 
 console.log(main());
