@@ -14,6 +14,7 @@ class LinkedList {
 
   insertFirst(item) {
     this.head = new _Node(item, this.head);
+    console.log('insert first success!', item);
   }
 
   insertLast(item) {
@@ -30,6 +31,7 @@ class LinkedList {
     }
 
     temp.next = new _Node(item, null);
+    console.log('insert last success!', item);
 
   }
 
@@ -68,10 +70,37 @@ class LinkedList {
       currNode = currNode.next;
     }
     if (currNode === null) {
-      console.log('Not found!');
+      console.log('Not found!', item);
       return;
     }
     prevNode.next = currNode.next;
+    console.log('remove success!', item);
+  }
+
+  insertBefore(item, key) {
+    if (!this.head) {
+      return null;
+    }
+    if (this.head.value === key) {
+      this.insertFirst(item);
+      return;
+    }
+
+    let currNode = this.head;
+    let prevNode = this.head;
+
+    while ((currNode !== null) && (currNode.value !== key)) {
+      prevNode = currNode;
+      currNode = currNode.next;
+    }
+    if (currNode === null) {
+      console.log('key not found!', key);
+      return;
+    }
+
+    prevNode.next = new _Node(item, currNode.value);
+    console.log('insertBefore success!', prevNode.next, currNode.value);
+
   }
 
 
@@ -85,8 +114,12 @@ function main() {
   LL.insertLast('Helo');
   LL.insertLast('Husker');
   LL.insertLast('Starbuck');
-  
+  LL.insertLast('Tauhida');
+  LL.remove('squirrel');
+  LL.insertBefore('Balay', 'Starbuck');
 }
+
+console.log(main());
 
 //doubly linked lists
 
